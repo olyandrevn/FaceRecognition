@@ -3,20 +3,12 @@ from sqlalchemy import create_engine
 
 
 class Aggregator:
-    """
-    Aggregator class to combine customer appearance data from multiple store databases incrementally.
-
-    Methods:
-        add_store(store_name, db_url): Add a store database to the aggregator.
-        aggregate_data(start_time, end_time): Aggregate appearance data across all stores.
-    """
-
     def __init__(self):
         """
         Initialize the aggregator with an empty list of stores and cached results.
         """
         self.stores = {}
-        self.aggregated_data = pd.DataFrame(columns=["customer_id", "total_appearances", "store_id", "timestamp"])  # Cached results
+        self.aggregated_data = pd.DataFrame(columns=["customer_id", "total_appearances", "store_id", "timestamp"])
 
     def add_store(self, store):
         """
